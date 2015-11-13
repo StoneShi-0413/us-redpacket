@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="en-us" ng-app="redpacketApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US-redpacket</title>
+    <link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+        <header class="us-header" ui-view="headerview" class="navbar navbar-inverse navbar-fixed-top">
+        </header>
+        <div id="content-wrapper">
+            <div class="page-content">
+                
+                <!-- Main Content -->
+                <!-- uiView:  -->
+                <div ui-view="contentview">
+                </div>
+            </div>
+            <!-- End Page Content -->
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

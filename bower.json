@@ -1,0 +1,15 @@
+{
+    "name": "us-coupon-frontend",
+    "version": "1.0.4",
+    "dependencies": {
+        "jquery": "1.9.1",
+        "angular": "1.4.x",
+        "angular-ui-router": "~0.2.10",
+        "angular-bootstrap": "*",
+        "angular-cookies": "1.4.x",
+        "angular-touch": "*",
+        "bootstrap-sass": "https://github.com/jlong/sass-bootstrap-defunct.git#2.3.2",
+        "angular-animate": "*",
+        "moment": "2.8.3"
+    }
+}

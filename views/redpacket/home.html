@@ -1,0 +1,136 @@
+<!-- Header Bar -->
+<div class="row header">
+    <div class="col-xs-12">
+        <div class="user pull-right">
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Notifications
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">Server Down!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="meta">
+            <div class="page">
+                操控面板
+            </div>
+            <div class="breadcrumb-links">
+                主页 / 操控面板
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Header Bar -->
+<div class="row">
+    <div class="col-lg-6">
+        <div class="col-lg-6 no-padding-left">
+            <div class="widget">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="pull-left">
+                            <h1 class="ng-binding">活动</h1></div>
+                        <div class="pull-right col-xs-6 col-sm-4">
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-body medium no-padding" ng-class="classes">
+                    <div class="widget-content">
+                        <div class="block-space ng-scope">
+                            <activity my-activity='activityModel' activity-list='activities'></activity>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 no-padding-right">
+            <div class="widget">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="pull-left">
+                            <h1 class="ng-binding">微信分享设置</h1></div>
+                        <div class="pull-right col-xs-6 col-sm-4">
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-body medium no-padding" ng-class="classes">
+                    <div class="widget-content">
+                        <div class="block-space ng-scope">
+                            <wechat-input></wechat-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left">
+                        <h1 class="ng-binding">红包单包面值</h1></div>
+                    <div class="pull-right col-xs-6 col-sm-4">
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" ng-class="classes">
+                <div class="widget-content">
+                    <div class="block-space ng-scope">
+                        <single-Packet></single-Packet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left">
+                        <h1 class="ng-binding">红包套包面值</h1></div>
+                    <div class="pull-right col-xs-6 col-sm-4">
+                        <button class="btn btn-primary" ng-click="addPacket()">
+                            添加套包</button>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" ng-class="classes">
+                <div class="widget-content">
+                    <div class="block-space ng-scope">
+                        <packets></packets>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left">
+                        <h1 class="ng-binding">红包套包组</h1></div>
+                    <div class="pull-right col-xs-6 col-sm-4">
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" ng-class="classes">
+                <div class="widget-content">
+                    <div class="block-space ng-scope">
+                        <packet-group></packet-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary pull-right" ng-click='addRedPacket()'>提交</button>
+    </div>
+</div>

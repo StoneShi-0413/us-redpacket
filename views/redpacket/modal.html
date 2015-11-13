@@ -1,0 +1,45 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">红包单包面值</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal text-center">
+            <fieldset>
+                <div class="control-group">
+                    <div class="controls">
+                        <select style="width:80%; margin: 10px auto; text-align:center;" class="form-control" ng-model="packet.item" ng-change="changeForm(packet.item)" ng-options="selectItem.id as selectItem.name for selectItem in packetSelectItems">
+                        <option value="">请选择项目</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                         <input ng-change="calculateTotal()" ng-if="packet.item=='0'" style="width:80%; margin: 10px auto;" type="number" class="form-control" placeholder="请输入面值面值" ng-model="packet.value">
+                         <input ng-change="calculateTotal()" ng-if="packet.item=='1'" style="width:80%; margin: 10px auto;" type="number" class="form-control" placeholder="请输入折扣" ng-model="packet.value">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input ng-change="calculateTotal()" style="width:80%; margin: 10px auto;"  type="number" class="form-control" placeholder="请输入数量" ng-model="packet.amount">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input ng-change="calculateTotal()" ng-if="packet.item=='1'" style="width:80%; margin: 10px auto;"  type="number" class="form-control" placeholder="最大折扣金额" ng-model="packet.discount">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input style="width:80%; margin: 10px auto;"  type="text" class="form-control" placeholder="总额" ng-model="packet.total" readonly value="packet.total">
+                    </div>
+                </div>
+
+                {{packet}}
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

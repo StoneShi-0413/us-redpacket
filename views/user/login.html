@@ -1,0 +1,24 @@
+<div class="login-form">
+    <div class="login-header">
+        <h2>登 录</h2></div>
+    <div class="login-login">
+        <form ng-submit='login($event)'>
+            <ul class="login-ul">
+                <li>
+                    <span class="login-un"><i class="login-fa login-fa-user"></i></span>
+                    <input type="text" required class="login-text" placeholder="用户名 或 密码" ng-model = "user.username"/>
+                </li>
+                <li>
+                    <span class="login-un"><i class="login-fa login-fa-lock"></i></span>
+                    <input type="password" required class="login-text" placeholder="用户密码" ng-model = "user.password"/>
+                </li>
+                <li>
+                    <input type="submit" value="登录" class="login-btn">
+                </li>
+                <li>
+                    
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
