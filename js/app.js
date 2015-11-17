@@ -10,12 +10,11 @@ require('../components/loading-bar');
 require('../components/jquery/jquery.min');
 require('../components/ie-emulation-modes-warning');
 require('../components/ie10-viewport-bug-workaround');
+var _ = require('../components/underscore/underscore');
 require('./app/filter/filters');
 require('./app/services/services');
 require('./app/directive/directives');
 require('./app/controller/controllers');
-
-
 
 var AppConstants = require('./constants'),
     requires = [
@@ -28,11 +27,17 @@ var AppConstants = require('./constants'),
         'redpacketApp.services',
         'redpacketApp.filters',
         'redpacketApp.directives',
+        'underscore',
         'redpacketApp.controllers'
     ];
 
+var underscore = angular.module('underscore', []);
+underscore.factory('_', function() {
+    return _; // assumes underscore has already been loaded on the page
+});
 
 var redpacketApp = angular.module('redpacketApp', requires);
+
 
 redpacketApp.constant('AppConstants', AppConstants);
 redpacketApp.config(require('./routes'));
@@ -120,7 +125,6 @@ redpacketApp.factory('principal',
     }
 );
 redpacketApp.run(function($rootScope, $state, $stateParams, authorization, principal) {
-
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $rootScope.toState = toState;
         $rootScope.toStateParams = toStateParams;

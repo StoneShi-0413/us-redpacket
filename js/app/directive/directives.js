@@ -8,7 +8,3 @@ require('./activity.directive');
 require('./wechatInput.directive');
 require('./packetGroup.directive');
 require('./packets.directive');
-/*require('./widgetHeader.directive');
-require('./widgetFooter.directive');
-require('./widgetBody.directive');
-require('./widget.directive');*/

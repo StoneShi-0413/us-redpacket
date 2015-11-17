@@ -14,7 +14,7 @@ var modelTmpls = ['singalPacket', 'packets'],
         return modelTempName;
     };
 
-var HomeCtrl = function($scope, activities, $uibModal, RedPacketService) {
+var HomeCtrl = function($scope, activities, $uibModal, RedPacketService, $q) {
 
     //activities = JsonArrayFilter(activities,['GOING']);
     $scope.activities = activities;
@@ -77,6 +77,13 @@ var HomeCtrl = function($scope, activities, $uibModal, RedPacketService) {
             weChatInfo = {lot:timestamp,title:$scope.weChatObj.title,body:$scope.weChatObj.desc,party_id:$scope.activityModel.id,image_id:$scope.weChatObj.image};
         RedPacketService.createRedPacketWeChatInfo(weChatInfo);
         RedPacketService.createCoupon($scope.singalPackets,$scope.packetsGroup);
+
+        var promises = [];
+        promises.push(RedPacketService.createRedPacketWeChatInfo(weChatInfo));
+        promises.push(RedPacketService.createCoupon($scope.singalPackets,$scope.packetsGroup));
+        $q.all(promises).then(function(data){
+            
+        });
 
 
     };
