@@ -16,7 +16,6 @@ var loginService = function($http, AppConstants, $rootScope) {
         login: function(user) {
             var url = AppConstants.getApiPrefix() + '/user/token?username=:username&password=:password';
             url = url.replace(':username',user.username).replace(':password',user.password);
-            console.log(url);
             return promise(url, 'POST').then(function(response){
                 
                 return response.data.valid;

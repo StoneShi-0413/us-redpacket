@@ -2490,7 +2490,7 @@ pre code {
             margin-bottom: 0px;
         }
         .no-padding-right {
-            padding-left:  15px;
+            padding-left: 15px;
         }
     }
     .col-lg-12 {
@@ -9999,4 +9999,22 @@ ul.sidebar .sidebar-list .menu-icon {
 
 tbdoy {
     vertical-align: middle;
+}
+
+.wechat-form {
+    text-align: center;
+    .wechat-form-title,
+    .wechat-form-desc,
+    .wechat-form-image {
+        width: 80%;
+        margin: 22px auto;
+    }
+}
+
+.activity-form {
+    text-align: center;
+    .activities {
+        width: 80%;
+        margin: 90px auto;
+    }
 }

@@ -14,7 +14,7 @@ var rdWidgetBodyDirective = function() {
         template: '<div class="widget-body" ng-class="classes"><div class="widget-content" ng-transclude></div></div>',
         restrict: 'E',
         link: function(scope, elem, attrs) {
-           console.log(scope);
+
         }
     };
 };

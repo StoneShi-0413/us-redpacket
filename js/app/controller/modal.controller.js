@@ -11,7 +11,6 @@ var ModalCtrl = function($scope, $uibModalInstance, modelName) {
         name: '折扣'
     }];
 
-    console.log(modelName);
     $scope.packet = {
         id: '',
         discount: '',
@@ -24,7 +23,7 @@ var ModalCtrl = function($scope, $uibModalInstance, modelName) {
 
     $scope.calculateTotal = function() {
         if ($scope.packet.item === '') {
-            packet.total = 0;
+            $scope.packet.total = 0;
         } else if ($scope.packet.item === '0') {
             if ($scope.packet.value === '' || $scope.packet.amount === '') {
                 $scope.packet.total = 0;
@@ -41,7 +40,9 @@ var ModalCtrl = function($scope, $uibModalInstance, modelName) {
     };
 
     $scope.ok = function() {
-        console.log($scope.packet);
+        if($scope.packet.item===''){
+            return ;
+        }
         $uibModalInstance.close($scope.packet);
     };
 

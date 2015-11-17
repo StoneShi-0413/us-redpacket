@@ -14,13 +14,18 @@ var modelTmpls = ['singalPacket', 'packets'],
         return modelTempName;
     };
 
-var HomeCtrl = function($scope, activities, $uibModal) {
+var HomeCtrl = function($scope, activities, $uibModal, RedPacketService) {
 
     //activities = JsonArrayFilter(activities,['GOING']);
     $scope.activities = activities;
     $scope.activityModel = {};
     $scope.singalPackets = [];
     $scope.packets = [];
+    $scope.packetsGroup = [];
+    $scope.packetsGroupNull = false;
+    $scope.weChatObj = {};
+
+
 
     $scope.animationsEnabled = true;
     $scope.openModal = function(model) {
@@ -40,9 +45,9 @@ var HomeCtrl = function($scope, activities, $uibModal) {
             });
 
         modalInstance.result.then(function(packetModel) {
-            if(getPacketType(packetModel.type)==='packets'){
+            if (getPacketType(packetModel.type) === 'packets') {
                 $scope.packets.push(packetModel);
-            }else if(getPacketType(packetModel.type) ==='singalPacket'){
+            } else if (getPacketType(packetModel.type) === 'singalPacket') {
                 $scope.singalPackets.push(packetModel);
             }
         }, function() {
@@ -54,6 +59,26 @@ var HomeCtrl = function($scope, activities, $uibModal) {
         $scope.animationsEnabled = !$scope.animationsEnabled;
     };
 
+    $scope.addPacketBucket = function() {
+        $scope.packetsGroup.push($scope.packets);
+        $scope.packets = [];
+    };
 
+    $scope.delItem = function(packetType, index) {
+        if (packetType === 'packets') {
+            $scope.packets.splice(index, 1);
+        } else if (packetType === 'singalPacket') {
+            $scope.singalPackets.splice(index, 1);
+        }
+    };
+
+    $scope.addRedPacket = function(){
+        var timestamp=new Date().getTime(),
+            weChatInfo = {lot:timestamp,title:$scope.weChatObj.title,body:$scope.weChatObj.desc,party_id:$scope.activityModel.id,image_id:$scope.weChatObj.image};
+        RedPacketService.createRedPacketWeChatInfo(weChatInfo);
+        RedPacketService.createCoupon($scope.singalPackets,$scope.packetsGroup);
+
+
+    };
 };
 controllersModule.controller(controllerName, HomeCtrl);

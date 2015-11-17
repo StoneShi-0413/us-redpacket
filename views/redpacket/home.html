@@ -62,7 +62,7 @@
                 <div class="widget-body medium no-padding" ng-class="classes">
                     <div class="widget-content">
                         <div class="block-space ng-scope">
-                            <wechat-input></wechat-input>
+                            <wechat-input wechat-obj = 'weChatObj'></wechat-input>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                     <div class="pull-left">
                         <h1 class="ng-binding">红包套包面值</h1></div>
                     <div class="pull-right col-xs-6 col-sm-4">
-                        <button class="btn btn-primary" ng-click="addPacket()">
+                        <button class="btn btn-primary"  ng-disabled="packetsGroupNull" ng-click="addPacketBucket()">
                             添加套包</button>
                     </div>
                 </div>

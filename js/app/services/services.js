@@ -5,5 +5,6 @@ var services = angular.module(servicesName, []);
 module.exports = services;
 require('./loginService');
 require('./activityService');
+require('./redPacketService');
 
 

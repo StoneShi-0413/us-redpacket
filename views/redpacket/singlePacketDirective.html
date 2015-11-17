@@ -28,13 +28,13 @@
             </thead>
             <tbody>
                 <tr ng-repeat='singalPacket in singalPackets'>
-                    <td class="text-center">{{singalPacket.item}}</td>
+                    <td class="text-center">{{singalPacket.item==='0'?'面值' :'折扣'}}</td>
                     <td>{{singalPacket.value}}</td>
                     <td>{{singalPacket.amount}}</td>
                     <td>{{singalPacket.discount? singalPacket.discount:'N/A' }}</td>
                     <td>{{singalPacket.total}}</td>
                     <td>
-                        <button class="btn btn-primary" ng-click="delItem($index)">
+                        <button class="btn btn-primary" ng-click="delItem('singalPacket',$index)">
                             删除</button>
                     </td>
                 </tr>

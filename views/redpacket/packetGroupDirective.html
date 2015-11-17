@@ -12,22 +12,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>
-                        <button class="btn btn-primary" ng-click="delItem()">
-                            删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td>
-                        <button class="btn btn-primary" ng-click="delItem()">
-                            删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
+                <tr ng-repeat='packets in packetsGroup'>
+                    <td class="text-center">{{$index}}</td>
                     <td>
                         <button class="btn btn-primary" ng-click="delItem()">
                             删除</button>
