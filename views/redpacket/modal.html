@@ -7,34 +7,36 @@
             <fieldset>
                 <div class="control-group">
                     <div class="controls">
-                        <select style="width:80%; margin: 10px auto; text-align:center;" class="form-control" ng-model="packet.item" ng-change="changeForm(packet.item)" ng-options="selectItem.id as selectItem.name for selectItem in packetSelectItems">
+                        <select class="form-control us-modal-select" ng-model="packet.item" ng-change="changeForm(packet.item)" ng-options="selectItem.id as selectItem.name for selectItem in packetSelectItems">
                         <option value="">请选择项目</option>
                     </select>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                         <input ng-change="calculateTotal()" ng-if="packet.item=='0'" style="width:80%; margin: 10px auto;" type="number" class="form-control" placeholder="请输入面值面值" ng-model="packet.value">
-                         <input ng-change="calculateTotal()" ng-if="packet.item=='1'" style="width:80%; margin: 10px auto;" type="number" class="form-control" placeholder="请输入折扣" ng-model="packet.value">
+                         <input ng-change="calculateTotal()" step="0" ng-if="packet.item=='0'" type="number" class="form-control us-modal-input" placeholder="请输入面值面值" ng-model="packet.value">
+                         <input ng-change="calculateTotal()" ng-if="packet.item=='1'"  type="number" class="form-control us-modal-input" placeholder="请输入折扣" ng-model="packet.value">
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <input ng-change="calculateTotal()" style="width:80%; margin: 10px auto;"  type="number" class="form-control" placeholder="请输入数量" ng-model="packet.amount">
+                        <input ng-change="calculateTotal()"   type="number" class="form-control us-modal-input" placeholder="请输入数量" ng-model="packet.amount">
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <input ng-change="calculateTotal()" ng-if="packet.item=='1'" style="width:80%; margin: 10px auto;"  type="number" class="form-control" placeholder="最大折扣金额" ng-model="packet.discount">
+                        <input ng-change="calculateTotal()" ng-if="packet.item=='1'" type="number" class="form-control us-modal-input" placeholder="最大折扣金额" ng-model="packet.discount">
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <input style="width:80%; margin: 10px auto;"  type="text" class="form-control" placeholder="总额" ng-model="packet.total" readonly value="packet.total">
+                        <input type="text" class="form-control us-modal-input" placeholder="总额" ng-model="packet.total" readonly value="packet.total">
                     </div>
                 </div>
             </fieldset>
         </form>
+
+                    {{packet}}
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>

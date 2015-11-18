@@ -7,7 +7,7 @@ var packetGroupDirective = function() {
         scope: true,
         replace: true,
         /*template: '<h1>Stone</h1>',
-        //*/templateUrl: '../views/redpacket/packetGroupDirective.html',
+        //*/templateUrl: './views/redpacket/packetGroupDirective.html',
         link: function(scope, elem, attrs) {
            
         }

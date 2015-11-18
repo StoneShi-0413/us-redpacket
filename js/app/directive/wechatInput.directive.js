@@ -10,7 +10,7 @@ var wechatInputDirective = function() {
             'wechatObj': '='
         },
         /*template: '<h1>Stone</h1>',
-        //*/templateUrl: '../views/redpacket/wechatInputDirective.html',
+        //*/templateUrl: './views/redpacket/wechatInputDirective.html',
         link: function(scope, elem, attrs) {
         }
     };

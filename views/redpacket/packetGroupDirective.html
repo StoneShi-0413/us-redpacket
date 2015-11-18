@@ -15,7 +15,7 @@
                 <tr ng-repeat='packets in packetsGroup'>
                     <td class="text-center">{{$index}}</td>
                     <td>
-                        <button class="btn btn-primary" ng-click="delItem()">
+                        <button class="btn btn-primary" ng-click="delItem('packetGroup',$index)">
                             删除</button>
                     </td>
                 </tr>

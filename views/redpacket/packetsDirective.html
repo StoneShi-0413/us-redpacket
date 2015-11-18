@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat='packet in packets'>
-                    <td class="text-center">{{singalPacket.item==='0'?'面值' :'折扣'}}</td>
+                    <td class="text-center">{{packet.item==='0'?'面值' :'折扣'}}</td>
                     <td>{{packet.value}}</td>
                     <td>{{packet.amount}}</td>
                     <td>{{packet.discount? packet.discount:'N/A' }}</td>

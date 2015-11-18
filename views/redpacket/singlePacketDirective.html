@@ -1,6 +1,6 @@
 <div class="block-space">
     <div>
-        <button class="btn btn-primary btn-item" ng-click="openModal('singalPacket')">
+        <button class="btn btn-primary btn-item" ng-click="openModal('singlePacket')">
             添加</button>
     </div>
     <div style="clear:both"></div>
@@ -27,14 +27,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat='singalPacket in singalPackets'>
-                    <td class="text-center">{{singalPacket.item==='0'?'面值' :'折扣'}}</td>
-                    <td>{{singalPacket.value}}</td>
-                    <td>{{singalPacket.amount}}</td>
-                    <td>{{singalPacket.discount? singalPacket.discount:'N/A' }}</td>
-                    <td>{{singalPacket.total}}</td>
+                <tr ng-repeat='singlePacket in singlePackets'>
+                    {{singlePacket}}
+                    <td class="text-center">{{singlePacket.item==='0'?'面值' :'折扣'}}</td>
+                    <td>{{singlePacket.value}}</td>
+                    <td>{{singlePacket.amount}}</td>
+                    <td>{{singlePacket.discount? singlePacket.discount:'N/A' }}</td>
+                    <td>{{singlePacket.total}}</td>
                     <td>
-                        <button class="btn btn-primary" ng-click="delItem('singalPacket',$index)">
+                        <button class="btn btn-primary" ng-click="delItem('singlePacket',$index)">
                             删除</button>
                     </td>
                 </tr>

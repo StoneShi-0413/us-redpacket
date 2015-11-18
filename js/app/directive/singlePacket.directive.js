@@ -7,7 +7,7 @@ var singlePacketDirective = function() {
         scope: true,
         replace: true,
         /*template: '<h1>Stone</h1>',
-        //*/templateUrl: '../views/redpacket/singlePacketDirective.html',
+        //*/templateUrl: './views/redpacket/singlePacketDirective.html',
         link: function(scope, elem, attrs) {
         }
     };

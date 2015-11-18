@@ -2,7 +2,7 @@
 
 var servicesModule = require('./services.js');
 var serviceName = 'RedPacketService';
-var redPacketService = function($http, AppConstants, $rootScope, _) {
+var redPacketService = function($http, AppConstants, $rootScope, _, $q) {
 
     var promise = function(url, method, data) {
         var promise = $http({
@@ -13,172 +13,100 @@ var redPacketService = function($http, AppConstants, $rootScope, _) {
         });
         return promise;
     };
-
-    var unique = function(data) {
-        var birthDates = {};
-        var param = "birthDate"
-        $.each(data.people, function() {
-            if (!birthDates[this[param]])
-                birthDates[this[param]] = [];
-            birthDates[this[param]].push(this);
+/*
+    var discountArray = function(discountArray) {
+        discountArray = _.groupBy(discountArray, function(doc) {
+            return doc.discount;
         });
 
-        for (var d in birthDates) {
-            // add d to array here
-            // or do something with d
-            // birthDates[d] is the array of people
-        }
+        _.each(discountArray, function(item, index) {
+            if (item.length > 1) {
+                discountArray[index] = _.map(_.groupBy(item, function(doc) {
+                    return doc.value;
+                }), function(grouped) {
+                    return grouped[0];
+                });
+            }
+        });
+
+        discountArray = _.flatten(discountArray);
+
+        return discountArray;
     };
 
-    var service = {
-        createRedPacket: function() {
-            var url = AppConstants.getApiPrefix() + '/party';
-            return promise(url, 'GET').then(function(response) {
+    var noDiscountArray = function(noDiscountArray) {
+        noDiscountArray = _.map(_.groupBy(noDiscountArray, function(doc) {
+            return doc.value;
+        }), function(grouped) {
+            return grouped[0];
+        });
 
+        return noDiscountArray;
+    };
+
+    var devideArray = function(array) {
+
+        var discountArray = [];
+        var withoutDisocutnArray = [];
+        _.each(array, function(arrayData, singlePacketIndex) {
+            if (!arrayData.hasOwnProperty('discount')) {
+                withoutDisocutnArray.push(arrayData);
+            } else {
+                discountArray.push(arrayData);
+            }
+        });
+
+        return {
+            'discountArray': discountArray,
+            'withoutDisocutnArray': withoutDisocutnArray
+        };
+    };
+
+    var createSingleCoupon = function(singlePackets) {
+        singlePackets = _.union(discountArray(devideArray(singlePackets).discountArray), noDiscountArray(devideArray(singlePackets).withoutDisocutnArray));
+    };
+
+    var createPacketsCoupon = function(packets) {
+        
+        //packets = _.union(discountArray(devideArray(packets).discountArray), noDiscountArray(devideArray(packets).withoutDisocutnArray));
+    };*/
+
+    var service = {
+        createRedPacket: function(redPacketObj) {
+            var url = AppConstants.getApiPrefix() + 'coupon/pool';
+
+            return promise(url, 'POST', redPacketObj).then(function(response) {
                 return response.data;
             });
         },
 
         createRedPacketWeChatInfo: function(weChatInfo) {
             var url = AppConstants.getApiPrefix() + 'coupon/info';
-            /*return promise(url, 'POST').then(function(response){
-                console.log(data);
+            return promise(url, 'POST', weChatInfo).then(function(response){
                 return response.data;
-            });*/
+            });
         },
 
-        createCoupon: function(singlePackets, packets) {
-            var url = AppConstants.getApiPrefix() + 'coupon?discount=:discount&percent=:percent';
-            var existingCoupons = [];
-            var packets = [
-                [{
-                    "id": "",
-                    "discount": "",
-                    "value": 20,
-                    "item": "0",
-                    "amount": 5,
-                    "total": 100,
-                    "type": "packets"
-                }, {
-                    "id": "",
-                    "discount": "",
-                    "value": 20,
-                    "item": "0",
-                    "amount": 7,
-                    "total": 140,
-                    "type": "packets"
-                }, {
-                    "id": "",
-                    "discount": 100,
-                    "value": 80,
-                    "item": "1",
-                    "amount": 2,
-                    "total": 160,
-                    "type": "packets"
-                }, {
-                    "id": "",
-                    "discount": "",
-                    "value": 10,
-                    "item": "0",
-                    "amount": 5,
-                    "total": 50,
-                    "type": "packets"
-                }, {
-                    "id": "",
-                    "discount": "",
-                    "value": 32,
-                    "item": "0",
-                    "amount": 2,
-                    "total": 64,
-                    "type": "packets"
-                }, {
-                    "id": "",
-                    "discount": 241,
-                    "value": 90,
-                    "item": "1",
-                    "amount": 4,
-                    "total": 867.6,
-                    "type": "packets"
-                }]
-            ];
-            var singlePackets = [{
-                "id": "",
-                "discount": "",
-                "value": 23,
-                "item": "0",
-                "amount": 1,
-                "total": 23,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": "",
-                "value": 5,
-                "item": "0",
-                "amount": 5,
-                "total": 25,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": "",
-                "value": 23,
-                "item": "0",
-                "amount": 1,
-                "total": 23,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": "",
-                "value": 5,
-                "item": "0",
-                "amount": 5,
-                "total": 25,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": 200,
-                "value": 85,
-                "item": "1",
-                "amount": 3,
-                "total": 510,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": 125,
-                "value": 75,
-                "item": "1",
-                "amount": 4,
-                "total": 375,
-                "type": "singalPacket"
-            }, {
-                "id": "",
-                "discount": 125,
-                "value": 75,
-                "item": "1",
-                "amount": 4,
-                "total": 375,
-                "type": "singalPacket"
-            }];
-            /*
-                        console.log(singlePackets);
-                        console.log(_.pluck(singlePackets, 'value'));
-                        console.log(_.pluck(singlePackets, 'discount'));*/
-            //console.log(_.chain(singlePackets).flatten().pluck("discount").unique().value())
+        createPacketCoupon: function(packets) {
 
-            var tuts = {
-                NetTuts: 'Web Development'
-            };
-            var defaults = {
-                NetTuts: 'Web Development',
-                niche: 'Education'
-            };
+            var promises = [];
 
-            _.defaults(tuts, defaults);
+            angular.forEach(packets, function(packet) {
 
-            console.log(tuts);
-        }
+                var url = AppConstants.getApiPrefix() + 'coupon?';
+                if (packet.hasOwnProperty('discount')) {
+                    url += 'discount=' + packet.discount + '&percent=' + packet.value;
+                } else {
+                    url += 'discount=' + packet.value
+                }
+                
+                promises.push(promise(url,'POST'));
+
+            });
+            return $q.all(promises);
+        },
+
     };
-
-
 
     return service;
 };

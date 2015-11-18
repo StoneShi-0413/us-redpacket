@@ -7,7 +7,7 @@ var packetsDirective = function() {
         scope: true,
         replace: true,
         /*template: '<h1>Stone</h1>',
-        //*/templateUrl: '../views/redpacket/packetsDirective.html',
+        //*/templateUrl: './views/redpacket/packetsDirective.html',
         link: function(scope, elem, attrs) {
            
         }

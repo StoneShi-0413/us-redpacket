@@ -9,7 +9,7 @@ var activityDirective = function() {
             'myActivity': '='
         },
         replace: true,
-        templateUrl: '../views/redpacket/activityDirective.html',
+        templateUrl: './views/redpacket/activityDirective.html',
         controller: function($scope) {
         },
         link: function(scope, elem, attrs) {
