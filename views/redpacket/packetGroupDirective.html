@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat='packets in packetsGroup'>
-                    <td class="text-center">{{$index}}</td>
+                    <td class="text-center" ><a class="btn btn-link" ng-click="openShowPacketModal($index)">{{$index}}</a></td>
                     <td>
                         <button class="btn btn-primary" ng-click="delItem('packetGroup',$index)">
                             删除</button>

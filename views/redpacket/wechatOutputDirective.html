@@ -1,14 +1,18 @@
-<form class="form-inline">
-    <select class="form-control">
-        <option> 面值
-        </option>
-        <option> 折扣
-        </option>
-    </select>
-    &nbsp; &nbsp; &nbsp; &nbsp;
-    <input type="text" class="form-control" placeholder="面值" /> X
-    <input type="text" class="form-control" placeholder="数量" /> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-    <input type="text" class="form-control" placeholder="最大折扣金额" /> &nbsp; &nbsp; &nbsp; &nbsp;
-    <button class="btn btn-default"> 添加红包
-    </button>
-</form>
+<div class="block-space">
+    <form role="form" class="form-inline wechat-form" style="">
+            <div class="wechat-output">
+                <div class="wechat-output-name">
+                    <h1>{{wechatObj.title}}</h1>
+                </div>
+                <div class="wechat-output-clear"></div>
+                <div class="wechat-output-under-div">
+                    <div  class="wechat-output-img">
+                        <img class="img-thumbnail" src='http://m.us-app.com/usmvn/image/{{wechatObj.image}}' />
+                    </div>
+                    <div class="wechat-output-desc" >
+                        <h1>{{wechatObj.desc}}</h1>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>

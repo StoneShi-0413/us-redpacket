@@ -1,3 +1,8 @@
+@media print {
+    body{
+        background:red;
+    }
+}
 @font-face {
     font-family: 'FontAwesome';
     src: url("../font/fontawesome-webfont.eot?v=3.1.0");
@@ -28,6 +33,7 @@
     background-repeat: repeat;
     margin-top: 0
 }
+
 
 .icon-spin {
     display: inline-block;
@@ -10028,4 +10034,51 @@ tbdoy {
 .us-modal-input {
     width: 80%;
     margin: 10px auto;
+}
+
+.lot-result {
+    font-weight: bold;
+    color: red;
+    width: 50%;
+    margin: 10% auto;
+}
+
+.wechat-output {
+    width: 40%;
+    margin: 40px auto;
+    text-align: left;
+    display: table;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    .wechat-output-desc {
+        width: 68%;
+        display: table-cell;
+        vertical-align: top;
+        h1 {
+            margin: 2px auto 3px 3px;
+            width: 220px;
+            word-wrap: break-word;
+        }
+    }
+    .wechat-output-clear {
+        clear: both;
+        display: table-row;
+    }
+    .wechat-output-under-div,
+    .wechat-output-name {
+        width: 100%;
+        display: table-row;
+    }
+    .wechat-output-name {
+        h1 {
+            margin-left: 9px;
+        }
+    }
+    .wechat-output-img {
+        display: block;
+        vertical-align: top;
+        width: 150px;
+        margin-left: 9px;
+        margin-bottom: 9px;
+    }
 }

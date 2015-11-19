@@ -4,7 +4,7 @@
         <div class="user pull-right">
             <div class="item dropdown">
                 <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell-o"></i>
+                    <i class="fa fa-print" ng-click="print()"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li class="dropdown-header">
@@ -35,7 +35,7 @@
                 <div class="widget-header">
                     <div class="row">
                         <div class="pull-left">
-                            <h1 class="ng-binding">活动 {{lot}}</h1></div>
+                            <h1 class="ng-binding">活动</h1></div>
                         <div class="pull-right col-xs-6 col-sm-4">
                         </div>
                     </div>
@@ -129,6 +129,46 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left">
+                        <h1 class="ng-binding">微信结果</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" ng-class="classes">
+                <div class="widget-content">
+                    <div class="block-space ng-scope" >
+                        <wechat-output wechat-obj = 'weChatObj' ></wechat-output>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left">
+                        <h1 class="ng-binding">红包lot结果</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" ng-class="classes">
+                <div class="widget-content">
+                    <div class="block-space ng-scope">
+                        <h1 ng-if="lot" class = 'lot-result'>lot : {{lot}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
     <div class="col-lg-12">
         <button class="btn btn-primary pull-right" ng-click='addRedPacket()'>提交</button>

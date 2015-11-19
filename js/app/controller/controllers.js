@@ -6,5 +6,6 @@ require('./header.controller');
 require('./notFound.controller');
 require('./home.controller');
 require('./login.controller');
-require('./modal.controller');
+require('./addPacketsModal.controller');
+require('./showPacketsModal.controller');
 

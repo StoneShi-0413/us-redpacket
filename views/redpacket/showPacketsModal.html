@@ -1,11 +1,9 @@
-<div class="block-space">
-    <div>
-        <button class="btn btn-primary btn-item" ng-click="openAddPacketModal('packets')">
-            添加</button>
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">红包套包面值</h3>
     </div>
-    <div style="clear:both"></div>
-    <div class="table-responsive">
-        <table class="table">
+    <div class="modal-body">
+         <table class="table">
             <thead>
                 <tr>
                     <th class="text-center">
@@ -21,9 +19,6 @@
                         最大折扣金额
                     </th>
                     <th>总计</th>
-                    <th>
-                        操作
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -33,12 +28,11 @@
                     <td>{{packet.amount}}</td>
                     <td>{{packet.discount? packet.discount:'N/A' }}</td>
                     <td>{{packet.total}}</td>
-                    <td>
-                        <button class="btn btn-primary" ng-click="delItem('packets',$index)">
-                            删除</button>
-                    </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
     </div>
 </div>

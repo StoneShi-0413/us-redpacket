@@ -6,5 +6,6 @@ module.exports = directives;
 require('./singlePacket.directive');
 require('./activity.directive');
 require('./wechatInput.directive');
+require('./wechatOutput.directive');
 require('./packetGroup.directive');
 require('./packets.directive');
